@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace FinalTask.Data.Models
 {
-    class Hashtag
+    public class Hashtag
     {
+        public Hashtag()
+        {
+            Movies = new HashSet<Movie>();
+        }
+
         public int Id { get; set; }
         public string Text { get; set; }
+
+        public ICollection<Movie> Movies { get; set; }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinalTask.Data.Models
 {
-    public class MovieList
+    public class Genre
     {
-        public MovieList()
+        public Genre()
         {
             Movies = new HashSet<Movie>();
         }
