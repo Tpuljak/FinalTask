@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace FinalTask.Domain.Queries
 {
-    public class GetSpecificMovieListQuery
+    public class GetSpecificActorQuery
     {
         private readonly MovieAppContext _context;
 
-        public GetSpecificMovieListQuery()
+        public GetSpecificActorQuery()
         {
             _context = new MovieAppContext();
         }
 
-        public MovieList Execute(int id)
+        public Actor Execute(int id)
         {
-            return _context.MovieLists.Find(id);
+            return _context.Actors.Find(id);
         }
     }
 }

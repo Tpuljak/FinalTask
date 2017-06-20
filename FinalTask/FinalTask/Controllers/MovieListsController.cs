@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace FinalTask.Controllers
 {
-    [RoutePrefix("movieList")]
+    [RoutePrefix("movieLists")]
     public class MovieListsController : ApiController
     {
         private readonly CreateMovieListCommand _createMovieListCommand;

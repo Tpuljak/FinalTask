@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalTask.Domain.Queries
+namespace FinalTask.Domain.Commands
 {
-    public class GetSpecificMovieListQuery
+    public class CreateActorCommand
     {
         private readonly MovieAppContext _context;
 
-        public GetSpecificMovieListQuery()
+        public CreateActorCommand()
         {
             _context = new MovieAppContext();
         }
 
-        public MovieList Execute(int id)
+        public void Execute(Actor actor)
         {
-            return _context.MovieLists.Find(id);
+            _context.Actors.Add(actor);
+            _context.SaveChanges();
         }
     }
 }

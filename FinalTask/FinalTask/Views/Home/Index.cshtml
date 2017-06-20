@@ -4,11 +4,23 @@
     <meta charset="utf-8" name="viewport" content="width=device-width"/>
     <title>FinalTask</title>
 
+    <script src="~/Scripts/Vendor/angular.js"></script>
+    <script src="~/Scripts/Vendor/angular-local-storage.js"></script>
+    <script src="~/Scripts/Vendor/angular-ui-router.js"></script>
+    <script src="~/Scripts/Vendor/lodash.js"></script>
     <script src="~/Scripts/App/app.module.js"></script>
+    <script src="~/Scripts/App/services/actors.repository.js"></script>
+    <script src="~/Scripts/App/services/directors.repository.js"></script>
+    <script src="~/Scripts/App/services/genres.repository.js"></script>
+    <script src="~/Scripts/App/services/hashtags.repository.js"></script>
+    <script src="~/Scripts/App/services/movieLists.repository.js"></script>
+    <script src="~/Scripts/App/services/movies.repository.js"></script>
+    <script src="~/Scripts/App/home/home.controller.js"></script>
+    <script src="~/Scripts/App/home/home.state.js"></script>
 
     <base href="/" />
 </head>
 <body>
-    <div ui-view></div>
+    <div ui-view>Loading...</div>
 </body>
 </html>

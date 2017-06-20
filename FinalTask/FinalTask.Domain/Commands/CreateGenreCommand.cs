@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalTask.Domain.Queries
+namespace FinalTask.Domain.Commands
 {
-    public class GetSpecificMovieListQuery
+    public class CreateGenreCommand
     {
         private readonly MovieAppContext _context;
 
-        public GetSpecificMovieListQuery()
+        public CreateGenreCommand()
         {
             _context = new MovieAppContext();
         }
 
-        public MovieList Execute(int id)
+        public void Execute(Genre genre)
         {
-            return _context.MovieLists.Find(id);
+            _context.Genres.Add(genre);
+            _context.SaveChanges();
         }
     }
 }

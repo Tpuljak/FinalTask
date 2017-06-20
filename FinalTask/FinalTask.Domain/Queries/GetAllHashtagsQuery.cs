@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace FinalTask.Domain.Queries
 {
-    public class GetSpecificMovieListQuery
+    public class GetAllHashtagsQuery
     {
         private readonly MovieAppContext _context;
 
-        public GetSpecificMovieListQuery()
+        public GetAllHashtagsQuery()
         {
             _context = new MovieAppContext();
         }
 
-        public MovieList Execute(int id)
+        public List<Hashtag> Execute()
         {
-            return _context.MovieLists.Find(id);
+            return _context.Hashtags.ToList();
         }
     }
 }

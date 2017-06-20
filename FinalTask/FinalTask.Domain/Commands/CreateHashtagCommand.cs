@@ -6,20 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalTask.Domain.Queries
+namespace FinalTask.Domain.Commands
 {
-    public class GetSpecificMovieListQuery
+    public class CreateHashtagCommand
     {
         private readonly MovieAppContext _context;
 
-        public GetSpecificMovieListQuery()
+        public CreateHashtagCommand()
         {
             _context = new MovieAppContext();
         }
 
-        public MovieList Execute(int id)
+        public void Execute(Hashtag hashtag)
         {
-            return _context.MovieLists.Find(id);
+            _context.Hashtags.Add(hashtag);
+            _context.SaveChanges();
         }
     }
 }
