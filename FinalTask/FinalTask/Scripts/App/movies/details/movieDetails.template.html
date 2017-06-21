@@ -1,0 +1,18 @@
+﻿<h1>
+    {{movie.Name}}
+</h1>
+<h3>Director: </h3>{{movie.Director.Name}}
+<h3>Genre: </h3>{{movie.Genre.Name}}
+<h3>Actors: </h3>
+<div ng-repeat="actor in movie.Actors" class="actor-list">
+    {{actor.Name}}
+</div>
+<h3 ng-show="movie.Hashtags.length">Hashtags: </h3>
+<div ng-repeat="hashtag in movie.Hashtags" class="hashtag-list">
+    {{hashtag.Text}}
+</div>
+<h3 ng-show="movie.MovieLists.length">Movie lists: </h3>
+<div ng-repeat="movieList in movie.MovieLists" class="movieList-list">
+    {{movieList.Name}}
+    <button ui-sref="movieListDetails({movieListId: {{movieList.Id}}})">Details and edit</button>
+</div>

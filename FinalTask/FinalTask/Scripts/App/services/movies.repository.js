@@ -1,4 +1,4 @@
-﻿angular.module('app').service('moviesRepository', function ($http, actorsRepository, directorsRepository, genresRepository, hashtagsRepository, movieListsRepository) {
+﻿angular.module('app').service('moviesRepository', function ($http, actorsRepository, directorsRepository, genresRepository, hashtagsRepository, localStorageService) {
     function getAllMovies() {
         return $http.get('/movies/get-all');
     }
@@ -20,9 +20,10 @@
         for (hashtagId in hashtagIds)
             hashtags.push(hashtagsRepository.getSpecific(hashtagId));
 
-        var movieLists = new Array();
+        var movieListsInStorage = angular.fromJson(localStorageService.get("movieLists"));
+        var movieListsForMovie = new Array();
         for (movieListId in movieListIds)
-            movieLists.push(movieListsRepository.getSpecific(movieListId));
+            movieListsForMovie.push(_.find(movieListsInStorage, movieList => movieList.Id === movieListId));
 
         var newMovie = {
             Name: name,

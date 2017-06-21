@@ -100,13 +100,20 @@ namespace FinalTask.Data.Initialization
                 }
             };
 
+            context.Directors.AddRange(directors);
+            context.Actors.AddRange(actors);
+            context.Genres.AddRange(genres);
+            context.Hashtags.AddRange(hashtags);
+            context.MovieLists.AddRange(movieLists);
+            context.SaveChanges();
+
             var movies = new List<Movie>()
             {
                 new Movie()
                 {
                     Name = "Film1",
                     Director = directors[0],
-                    Actors = actors.Where(actor => actor.Id <= 3).ToList(),
+                    Actors = context.Actors.Where(actor => actor.Id <= 3).ToList(),
                     Hashtags = hashtags,
                     Genre = genres[0],
                     MovieLists = movieLists
@@ -115,25 +122,20 @@ namespace FinalTask.Data.Initialization
                 {
                     Name = "Film2",
                     Director = directors[1],
-                    Actors = actors.Where(actor => actor.Id >= 3).ToList(),
+                    Actors = context.Actors.Where(actor => actor.Id >= 3).ToList(),
                     Hashtags = hashtags,
                     Genre = genres[1],
-                    MovieLists = movieLists
+                    MovieLists = context.MovieLists.ToList()
                 },
                 new Movie()
                 {
                     Name = "Film3",
                     Director = directors[2],
-                    Actors = actors.Where(actor => actor.Id % 2 == 0).ToList(),
+                    Actors = context.Actors.Where(actor => actor.Id % 2 == 0).ToList(),
                     Genre = genres[2]
                 }
             };
-
-            context.Directors.AddRange(directors);
-            context.Actors.AddRange(actors);
-            context.Genres.AddRange(genres);
-            context.Hashtags.AddRange(hashtags);
-            context.MovieLists.AddRange(movieLists);
+            
             context.Movies.AddRange(movies);
             context.SaveChanges();
             base.Seed(context); 

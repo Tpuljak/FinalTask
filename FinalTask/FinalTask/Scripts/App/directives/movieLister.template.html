@@ -1,0 +1,21 @@
+﻿<div ng-repeat="movie in movies" class="movie-data-container">
+    <h3>Name: </h3>{{movie.Name}}
+    <div ng-show="expand">
+        <h3>Director: </h3>{{movie.Director.Name}}
+        <h3>Genre: </h3>{{movie.Genre.Name}}
+        <h3>Actors: </h3>
+        <div ng-repeat="actor in movie.Actors" class="actor-list">
+            {{actor.Name}}
+        </div>
+        <h3 ng-show="movie.Hashtags.length">Hashtags: </h3>
+        <div ng-repeat="hashtag in movie.Hashtags" class="hashtag-list">
+            {{hashtag.Text}}
+        </div>
+        <h3 ng-show="movie.MovieLists.length && showLists">Movie lists: </h3>
+        <div ng-repeat="movieList in movie.MovieLists" class="movieList-list" ng-show="showLists">
+            {{movieList.Name}}
+        </div>
+    </div>
+    <button ui-sref="movieDetails({movieId: {{movie.Id}}})">Details and edit</button>
+    <button ng-show="showLists" ng-click="deleteMovie()">Delete</button>
+</div>

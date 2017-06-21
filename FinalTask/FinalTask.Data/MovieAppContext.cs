@@ -11,7 +11,7 @@ namespace FinalTask.Data
 {
     public class MovieAppContext : DbContext
     {
-        public MovieAppContext() : base()
+        public MovieAppContext() : base("MovieAppDatabase")
         {
             Database.SetInitializer(new MovieAppDbInitialization());
         }

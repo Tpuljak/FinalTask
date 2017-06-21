@@ -193,9 +193,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\App\directives\movieLister.directive.js" />
+    <Content Include="Scripts\App\directives\movieLister.template.html" />
     <Content Include="Scripts\App\home\home.controller.js" />
     <Content Include="Scripts\App\home\home.state.js" />
     <Content Include="Scripts\App\home\home.template.html" />
+    <Content Include="Scripts\App\movieLists\details\movieListDetails.controller.js" />
+    <Content Include="Scripts\App\movieLists\details\movieListDetails.state.js" />
+    <Content Include="Scripts\App\movieLists\details\movieListDetails.template.html" />
+    <Content Include="Scripts\App\movieLists\movieLists.controller.js" />
+    <Content Include="Scripts\App\movieLists\movieLists.state.js" />
+    <Content Include="Scripts\App\movieLists\movieLists.template.html" />
+    <Content Include="Scripts\App\movies\details\movieDetails.controller.js" />
+    <Content Include="Scripts\App\movies\details\movieDetails.state.js" />
+    <Content Include="Scripts\App\movies\details\movieDetails.template.html" />
+    <Content Include="Scripts\App\movies\movies.controller.js" />
+    <Content Include="Scripts\App\movies\movies.state.js" />
+    <Content Include="Scripts\App\movies\movies.template.html" />
     <Content Include="Scripts\App\services\actors.repository.js" />
     <Content Include="Scripts\App\services\directors.repository.js" />
     <Content Include="Scripts\App\services\genres.repository.js" />
@@ -265,8 +279,6 @@
     <Folder Include="Scripts\App\directors\" />
     <Folder Include="Scripts\App\genres\" />
     <Folder Include="Scripts\App\hashtags\" />
-    <Folder Include="Scripts\App\movieLists\" />
-    <Folder Include="Scripts\App\movies\" />
     <Folder Include="Views\Movies\" />
   </ItemGroup>
   <ItemGroup>
