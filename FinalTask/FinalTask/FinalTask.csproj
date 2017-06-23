@@ -198,6 +198,9 @@
     <Content Include="Scripts\App\home\home.controller.js" />
     <Content Include="Scripts\App\home\home.state.js" />
     <Content Include="Scripts\App\home\home.template.html" />
+    <Content Include="Scripts\App\movieLists\add\movieListAdding.controller.js" />
+    <Content Include="Scripts\App\movieLists\add\movieListAdding.state.js" />
+    <Content Include="Scripts\App\movieLists\add\movieListAdding.template.html" />
     <Content Include="Scripts\App\movieLists\details\movieListDetails.controller.js" />
     <Content Include="Scripts\App\movieLists\details\movieListDetails.state.js" />
     <Content Include="Scripts\App\movieLists\details\movieListDetails.template.html" />
@@ -285,7 +288,6 @@
     <Folder Include="Scripts\App\directors\" />
     <Folder Include="Scripts\App\genres\" />
     <Folder Include="Scripts\App\hashtags\" />
-    <Folder Include="Scripts\App\movieLists\add\" />
     <Folder Include="Views\Movies\" />
   </ItemGroup>
   <ItemGroup>

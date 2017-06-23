@@ -12,9 +12,13 @@
     }
 
     function createHashtag(text) {
+        if (text[0] != '#')
+            text = '#' + text;
+
         var newHashtag = {
             Text: text
         }
+
         return $http.post('/hashtags/create/', newHashtag);
     }
 

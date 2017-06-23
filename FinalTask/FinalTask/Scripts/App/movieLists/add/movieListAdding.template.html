@@ -1,0 +1,16 @@
+﻿<h1>
+    Add new movie lists:
+</h1>
+<h4>* = required</h4>
+<div class="create-movie-list-container">
+    <div class="input-section-container">
+        <h3>Name: *</h3>
+        <input type="text" placeholder="Type here..." ng-model="newMovieListName"/>
+    </div>
+    <div class="input-section-container">
+        <h3>Select movies: *</h3>
+        <label ng-repeat="movie in movies"><input type="checkbox" name="moviesSelect" ng-model="movie.checked" value="{{movie.Id}}" />{{movie.Name}}<br /></label>
+    </div>
+</div>
+<button ng-click="addNewMovieList()">Add movie list</button>
+<h4 ng-show="movieListAdded">Movie list successfully added.</h4>

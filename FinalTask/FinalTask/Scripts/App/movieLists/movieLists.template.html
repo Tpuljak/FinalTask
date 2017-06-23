@@ -1,5 +1,5 @@
 ﻿<h1>Movie lists</h1>
-<button>Add new movie lists</button>
+<button ui-sref="movieListAdding">Add new movie lists</button>
 <div ng-repeat="movieList in movieLists">
     {{movieList.Name}}
     <h3 ng-show="movieList.Movies">Movies:</h3>

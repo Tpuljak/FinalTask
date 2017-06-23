@@ -7,13 +7,13 @@
     </div>
     <div class="input-section-container">
         <h3>Choose a director: *</h3>
-        <label ng-repeat="director in directors"><input type="radio" name="directorSelect" ng-model="director.checked" value="true"/>{{director.Name}}</label><br />
+        <label ng-repeat="director in directors"><input type="radio" name="directorSelect" ng-model="$parent.selectedDirectorId" value="{{director.Id}}"/>{{director.Name}}<br /></label>
         <input type="text" placeholder="New director name" ng-model="newDirectorName" />
         <button ng-click="addDirector(newDirectorName)" ng-disabled="!newDirectorName">Add new director</button>
     </div>
     <div class="input-section-container">
         <h3>Choose a genre: *</h3>
-        <label ng-repeat="genre in genres"><input type="radio" name="genreSelect" ng-model="genreRadioBtn" value="{{genre.Id}}" />{{genre.Name}}<br /></label>
+        <label ng-repeat="genre in genres"><input type="radio" name="genreSelect" ng-model="$parent.selectedGenreId" value="{{genre.Id}}" />{{genre.Name}}<br /></label>
         <input type="text" placeholder="New genre name" ng-model="newGenreName" />
         <button ng-click="addGenre(newGenreName)" ng-disabled="!newGenreName">Add new genre</button>
     </div>
@@ -33,7 +33,8 @@
         <h3>Choose movie lists: </h3>
         <label ng-repeat="movieList in movieLists"><input type="checkbox" name="movieListsSelect" ng-model="movieList.checked" value="{{movieList.Id}}" />{{movieList.Name}}<br /></label>
         <input type="text" placeholder="New movie list name" ng-model="newMovieListName" />
-        <button ng-click="addMovieList(movieListName)" ng-disabled="!newMovieListName">Add new movie list</button>
+        <button ng-click="addMovieList(newMovieListName)" ng-disabled="!newMovieListName">Add new movie list</button>
     </div>
 </div>
 <button ng-click="addNewMovie()">Add movie</button>
+<h4 ng-show="movieAdded">Movie successfully added.</h4>

@@ -11,17 +11,7 @@
         });
     }
 
-    function createMovieList(name, movieIds) {
-        var movies = new Array();
-        for (movieId in movieIds) {
-            movies.push(moviesRepository.getSpecific(movieId));
-        }
-
-        var newMovieList = {
-            Name: name,
-            Movies: movies
-        }
-
+    function createMovieList(newMovieList) {
         return $http.post('/movieLists/create/', newMovieList);
     }
 

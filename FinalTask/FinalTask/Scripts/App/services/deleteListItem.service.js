@@ -1,18 +1,14 @@
-﻿angular.module('app').service('DeleteListItemService', function (localStorageService, SetStorageService, moviesRepository, movieListsRepository) {
+﻿angular.module('app').service('DeleteListItemService', function (localStorageService, SetStorageService, moviesRepository, movieListsRepository, RefreshListService) {
     this.deleteMovie = function (id) {
-        moviesRepository.delete(id).then(function (response) {
-            moviesRepository.getAll()
-                .then(function (response) {
-                    SetStorageService.setLocalStorage(response.data, "movies");
-                });
-        });
+        return moviesRepository.delete(id);
     }
 
     this.deleteMovieList = function (id) {
-        movieListsRepository.delete(id).then(function (response) {
+        movieListsRepository.delete(id).then(function () {
             movieListsRepository.getAll()
                 .then(function (response) {
                     SetStorageService.setLocalStorage(response.data, "movieLists");
+                    return RefreshListService.refresh("movieLists");
                 });
         });
     };

@@ -7,7 +7,7 @@
             movieListId: '@'
         },
         templateUrl: 'Scripts/App/directives/movieLister.template.html',
-        controller: function ($scope, moviesRepository, DeleteListItemService, RefreshListService) {
+        controller: function ($scope, moviesRepository, RefreshListService, SetStorageService) {
             if ($scope.expanded === "true")
                 $scope.expand = true;
             else
@@ -25,22 +25,14 @@
                 $scope.movies = _.filter(angular.fromJson(localStorageService.get("movies")), movie => _.find(movie.MovieLists, movieList => movieList.Id == parseInt($scope.movieListId)));
 
             $scope.deleteMovie = function (id) {
-                /*moviesRepository.delete(id).then(function (response) {
-                    moviesRepository.getAll()
-                        .then(function (response) {
-                            SetStorageService.setLocalStorage(response.data, "movies");
-                            $scope.movies = angular.fromJson(localStorageService.get("movies"));
-                        });
+                moviesRepository.delete(id)
+                    .then(function (response) {
+                        moviesRepository.getAll()
+                            .then(function (response) {
+                                SetStorageService.setLocalStorage(response.data, "movies");
+                                $scope.movies = RefreshListService.refresh("movies");
+                            });
                 });
-                */
-                setTimeout(function () {
-                    DeleteListItemService.deleteMovie(id);
-
-                }, 1);
-                setTimeout(function () {
-                    $scope.movies = RefreshListService.refresh("movies");
-
-                }, 10);
             }
         }
     }
