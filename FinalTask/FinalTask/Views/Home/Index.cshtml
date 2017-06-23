@@ -3,20 +3,24 @@
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width"/>
     <title>FinalTask</title>
+    <base href="/" />
 
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/Vendor/angular.js"></script>
     <script src="~/Scripts/Vendor/angular-local-storage.js"></script>
     <script src="~/Scripts/Vendor/angular-ui-router.js"></script>
     <script src="~/Scripts/Vendor/lodash.js"></script>
     <script src="~/Scripts/App/app.module.js"></script>
-    <script src="~/Scripts/App/app.configure.js"></script>
     <script src="~/Scripts/App/services/setStorage.service.js"></script>
+    <script src="~/Scripts/App/services/deleteListItem.service.js"></script>
+    <script src="~/Scripts/App/services/refreshList.service.js"></script>
     <script src="~/Scripts/App/services/actors.repository.js"></script>
     <script src="~/Scripts/App/services/directors.repository.js"></script>
     <script src="~/Scripts/App/services/genres.repository.js"></script>
     <script src="~/Scripts/App/services/hashtags.repository.js"></script>
     <script src="~/Scripts/App/services/movieLists.repository.js"></script>
     <script src="~/Scripts/App/services/movies.repository.js"></script>
+    <script src="~/Scripts/App/app.configure.js"></script>
     <script src="~/Scripts/App/home/home.controller.js"></script>
     <script src="~/Scripts/App/home/home.state.js"></script>
     <script src="~/Scripts/App/movies/movies.controller.js"></script>
@@ -28,8 +32,9 @@
     <script src="~/Scripts/App/directives/movieLister.directive.js"></script>
     <script src="~/Scripts/App/movieLists/details/movieListDetails.controller.js"></script>
     <script src="~/Scripts/App/movieLists/details/movieListDetails.state.js"></script>
+    <script src="~/Scripts/App/movies/add/movieAdding.controller.js"></script>
+    <script src="~/Scripts/App/movies/add/movieAdding.state.js"></script>
 
-    <base href="/" />
 </head>
 <body>
     <div ui-view>Loading...</div>

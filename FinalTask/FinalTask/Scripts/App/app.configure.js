@@ -10,7 +10,7 @@ angular.module('app').run(function (localStorageService, moviesRepository, movie
                 localStorageService.set("movies", angular.toJson(response.data));
             });
     }
-            
+    
     if (!angular.fromJson(localStorageService.get("movieLists"))) {
         movieListsRepository.getAll()
             .then(function (response) {

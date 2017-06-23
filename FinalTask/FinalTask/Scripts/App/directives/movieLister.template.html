@@ -17,5 +17,5 @@
         </div>
     </div>
     <button ui-sref="movieDetails({movieId: {{movie.Id}}})">Details and edit</button>
-    <button ng-show="showLists" ng-click="deleteMovie()">Delete</button>
+    <button ng-show="showLists" ng-click="deleteMovie(movie.Id)">Delete</button>
 </div>

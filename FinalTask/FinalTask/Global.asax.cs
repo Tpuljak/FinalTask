@@ -21,7 +21,7 @@ namespace FinalTask
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             HttpConfiguration config = GlobalConfiguration.Configuration;
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            
         }
+
     }
 }

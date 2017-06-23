@@ -204,6 +204,9 @@
     <Content Include="Scripts\App\movieLists\movieLists.controller.js" />
     <Content Include="Scripts\App\movieLists\movieLists.state.js" />
     <Content Include="Scripts\App\movieLists\movieLists.template.html" />
+    <Content Include="Scripts\App\movies\add\movieAdding.controller.js" />
+    <Content Include="Scripts\App\movies\add\movieAdding.state.js" />
+    <Content Include="Scripts\App\movies\add\movieAdding.template.html" />
     <Content Include="Scripts\App\movies\details\movieDetails.controller.js" />
     <Content Include="Scripts\App\movies\details\movieDetails.state.js" />
     <Content Include="Scripts\App\movies\details\movieDetails.template.html" />
@@ -211,6 +214,7 @@
     <Content Include="Scripts\App\movies\movies.state.js" />
     <Content Include="Scripts\App\movies\movies.template.html" />
     <Content Include="Scripts\App\services\actors.repository.js" />
+    <Content Include="Scripts\App\services\deleteListItem.service.js" />
     <Content Include="Scripts\App\services\directors.repository.js" />
     <Content Include="Scripts\App\services\genres.repository.js" />
     <Content Include="Scripts\App\services\hashtags.repository.js" />
@@ -226,6 +230,8 @@
     <Content Include="Scripts\App\app.configure.js" />
     <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\App\services\movies.repository.js" />
+    <Content Include="Scripts\App\services\refreshList.service.js" />
+    <Content Include="Scripts\App\services\setStorage.service.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -279,6 +285,7 @@
     <Folder Include="Scripts\App\directors\" />
     <Folder Include="Scripts\App\genres\" />
     <Folder Include="Scripts\App\hashtags\" />
+    <Folder Include="Scripts\App\movieLists\add\" />
     <Folder Include="Views\Movies\" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,8 @@
 <button>Add new movie lists</button>
 <div ng-repeat="movieList in movieLists">
     {{movieList.Name}}
-    <movie-lister show-movie-lists="false" expanded="false"></movie-lister>
+    <h3 ng-show="movieList.Movies">Movies:</h3>
+    <movie-lister show-movie-lists="false" expanded="false" movie-list-id="{{movieList.Id}}"></movie-lister>
     <button ui-sref="movieListDetails({movieListId: {{movieList.Id}}})">Details and edit</button>
+    <button ng-click="deleteMovieList(movieList.Id)">Delete</button>
 </div>
