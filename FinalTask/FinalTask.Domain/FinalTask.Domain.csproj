@@ -68,6 +68,7 @@
     <Compile Include="Queries\GetSpecificHashtagQuery.cs" />
     <Compile Include="Queries\GetSpecificMovieListQuery.cs" />
     <Compile Include="Queries\GetSpecificMovieQuery.cs" />
+    <Compile Include="Queries\SearchMoviesQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinalTask.Data\FinalTask.Data.csproj">

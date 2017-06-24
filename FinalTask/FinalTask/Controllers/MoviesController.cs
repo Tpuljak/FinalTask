@@ -17,6 +17,7 @@ namespace FinalTask.Controllers
         private readonly DeleteMovieCommand _deleteMovieCommand;
         private readonly GetAllMoviesQuery _getAllMoviesQuery;
         private readonly GetSpecificMovieQuery _getSpecificMovieQuery;
+        private readonly SearchMoviesQuery _searchMoviesQuery;
 
         public MoviesController()
         {
@@ -24,6 +25,7 @@ namespace FinalTask.Controllers
             _deleteMovieCommand = new DeleteMovieCommand();
             _getAllMoviesQuery = new GetAllMoviesQuery();
             _getSpecificMovieQuery = new GetSpecificMovieQuery();
+            _searchMoviesQuery = new SearchMoviesQuery();
         }
 
         [HttpGet]
@@ -54,6 +56,13 @@ namespace FinalTask.Controllers
         {
             _createMovieCommand.Execute(movie);
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("search")]
+        public List<Movie> SearchMovies(string searchText, string[] searchBy)
+        {
+            return _searchMoviesQuery.Execute(searchText, searchBy);
         }
     }
 }

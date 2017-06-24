@@ -233,6 +233,7 @@
     <Content Include="Scripts\App\app.configure.js" />
     <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\App\services\movies.repository.js" />
+    <Content Include="Scripts\App\services\movieSearch.service.js" />
     <Content Include="Scripts\App\services\refreshList.service.js" />
     <Content Include="Scripts\App\services\setStorage.service.js" />
     <Content Include="Scripts\bootstrap.js" />

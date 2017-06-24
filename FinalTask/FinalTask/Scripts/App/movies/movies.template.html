@@ -1,5 +1,11 @@
 ﻿<h1>
     Movies
 </h1>
+<h3>Search movies: </h3>
+<input type="text" placeholder="Type here..." ng-model="searchInput" ng-change="search()"/>
+<div class="filters-container" ng-show="searchInput">
+    <h4>Filters: </h4>
+    <label ng-repeat="filter in filters"><input type="checkbox" ng-model="filter.checked" value="{{filter.Value}}" />{{filter.Name}}</label>
+</div>
 <button ui-sref="movieAdding">Add new movies</button>
 <movie-lister show-movie-lists="true" expanded="true"></movie-lister>

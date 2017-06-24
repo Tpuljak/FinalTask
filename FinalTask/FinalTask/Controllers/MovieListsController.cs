@@ -14,14 +14,14 @@ namespace FinalTask.Controllers
     public class MovieListsController : ApiController
     {
         private readonly CreateMovieListCommand _createMovieListCommand;
-        private readonly DeleteMovieCommand _deleteMovieListCommand;
+        private readonly DeleteMovieListCommand _deleteMovieListCommand;
         private readonly GetAllMovieListsQuery _getAllMovieListsQuery;
         private readonly GetSpecificMovieListQuery _getSpecificMovieListQuery;
 
         public MovieListsController()
         {
             _createMovieListCommand = new CreateMovieListCommand();
-            _deleteMovieListCommand = new DeleteMovieCommand();
+            _deleteMovieListCommand = new DeleteMovieListCommand();
             _getAllMovieListsQuery = new GetAllMovieListsQuery();
             _getSpecificMovieListQuery = new GetSpecificMovieListQuery();
         }

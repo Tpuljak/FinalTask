@@ -26,6 +26,14 @@ namespace FinalTask.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Movie>()
+                .HasMany(x => x.MovieLists)
+                .WithMany(x => x.Movies);
+
+            modelBuilder.Entity<MovieList>()
+                .HasMany(x => x.Movies)
+                .WithMany(x => x.MovieLists);
+
+            modelBuilder.Entity<Movie>()
                 .HasRequired(x => x.Genre)
                 .WithMany(x => x.Movies)
                 .HasForeignKey(x => x.GenreId)

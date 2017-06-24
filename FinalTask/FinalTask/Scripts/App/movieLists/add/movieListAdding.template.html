@@ -8,6 +8,17 @@
         <input type="text" placeholder="Type here..." ng-model="newMovieListName"/>
     </div>
     <div class="input-section-container">
+        <label><input type="radio" name="movieGeneration" ng-model="movieGeneration" value="manual" />Manually select movies</label>
+        <label><input type="radio" name="movieGeneration" ng-model="movieGeneration" value="random" />Randomly add movies</label>
+    </div>
+    <div class="input-section-container" ng-show="movieGeneration === 'random'">
+        <h3>Number of movies: (leave empty for all)</h3>
+        <input type="text" placeholder="Type here..." ng-model="numberOfMovies"/>
+        <h3>Select movie genre: </h3>
+        <label><input type="radio" name="genreSelect" ng-model="selectedGenre" value="random"/>Random genre</label><br />
+        <label ng-repeat="genre in genres"><input type="radio" name="genreSelect" ng-model="$parent.selectedGenre" value="{{genre.Id}}"/>{{genre.Name}}<br /></label>
+    </div>
+    <div class="input-section-container" ng-show="movieGeneration === 'manual'">
         <h3>Select movies: *</h3>
         <label ng-repeat="movie in movies"><input type="checkbox" name="moviesSelect" ng-model="movie.checked" value="{{movie.Id}}" />{{movie.Name}}<br /></label>
     </div>
