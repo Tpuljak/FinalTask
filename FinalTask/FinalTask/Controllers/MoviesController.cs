@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using FinalTask.Domain.Queries;
 using FinalTask.Data.Models;
+using FinalTask.Domain.DTO;
 
 namespace FinalTask.Controllers
 {
@@ -18,6 +19,7 @@ namespace FinalTask.Controllers
         private readonly GetAllMoviesQuery _getAllMoviesQuery;
         private readonly GetSpecificMovieQuery _getSpecificMovieQuery;
         private readonly SearchMoviesQuery _searchMoviesQuery;
+        private readonly GetAllMovieDTOsQuery _getAllMovieDTOsQuery;
 
         public MoviesController()
         {
@@ -63,6 +65,13 @@ namespace FinalTask.Controllers
         public List<Movie> SearchMovies(string searchText, string[] searchBy)
         {
             return _searchMoviesQuery.Execute(searchText, searchBy);
+        }
+
+        [HttpGet]
+        [Route("get-dto")]
+        public List<MovieForMovieListDTO> GetAllMovieDTOs()
+        {
+            return _getAllMovieDTOsQuery.Execute();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('MoviesController', function ($filter, moviesRepository, localStorageService, $http, $scope, SetStorageService, RefreshListService) {
+﻿angular.module('app').controller('MoviesController', function ($filter, moviesRepository, localStorageService, $http, $scope, SetStorageService, RefreshListService, MovieSearchService) {
     $scope.movies = angular.fromJson(localStorageService.get("movies"));
 
     $scope.filters = [
@@ -30,9 +30,6 @@
     }
 
     $scope.search = function () {
-        moviesRepository.search($scope.searchInput, $scope.getSelected($scope.filters))
-            .then(function (response) {
-                $scope.movies = response.data;
-            })
+        $scope.movies = MovieSearchService.search($scope.searchInput, $scope.getSelected($scope.filters));
     }
 });

@@ -23,10 +23,15 @@
         });
     }
 
+    function getMovieListDTOs() {
+        return $http.get('/movieLists/get-dto');
+    }
+
     return {
         getAll: getAllMovieLists,
         getSpecific: getSpecificMovieList,
         create: createMovieList,
-        delete: deleteMovieList
+        delete: deleteMovieList,
+        getDTOs: getMovieListDTOs
     };
 })

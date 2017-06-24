@@ -15,6 +15,14 @@
         return $http.post('/movies/create/', newMovie);
     }
 
+    function deleteMovie(id) {
+        return $http.delete('/movies/delete/', {
+            params: {
+                id: id
+            }
+        });
+    }
+
     function searchMovies(searchText, searchBy) {
         return $http.get('/movies/search/', {
             params: {
@@ -24,11 +32,16 @@
         });
     }
 
+    function getMovieDTOs() {
+        return $http.get('/movies/get-dto');
+    }
+
     return {
         getAll: getAllMovies,
         getSpecific: getSpecificMovie,
         create: createMovie,
         delete: deleteMovie,
-        search: searchMovies
+        search: searchMovies,
+        getDTOs: getMovieDTOs
     }
 })

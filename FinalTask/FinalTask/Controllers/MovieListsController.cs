@@ -1,5 +1,6 @@
 ﻿using FinalTask.Data.Models;
 using FinalTask.Domain.Commands;
+using FinalTask.Domain.DTO;
 using FinalTask.Domain.Queries;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace FinalTask.Controllers
         private readonly DeleteMovieListCommand _deleteMovieListCommand;
         private readonly GetAllMovieListsQuery _getAllMovieListsQuery;
         private readonly GetSpecificMovieListQuery _getSpecificMovieListQuery;
+        private readonly GetAllMovieListDTOsQuery _getAllMovieListDTOsQuery;
 
         public MovieListsController()
         {
@@ -54,6 +56,13 @@ namespace FinalTask.Controllers
         {
             _createMovieListCommand.Execute(movieList);
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("get-dto")]
+        public List<MovieListForMovieDTO> GetAllMovieListDTOs()
+        {
+
         }
     }
 }
