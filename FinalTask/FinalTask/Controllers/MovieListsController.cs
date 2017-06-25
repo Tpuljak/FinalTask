@@ -26,6 +26,7 @@ namespace FinalTask.Controllers
             _deleteMovieListCommand = new DeleteMovieListCommand();
             _getAllMovieListsQuery = new GetAllMovieListsQuery();
             _getSpecificMovieListQuery = new GetSpecificMovieListQuery();
+            _getAllMovieListDTOsQuery = new GetAllMovieListDTOsQuery();
         }
 
         [HttpGet]
@@ -62,7 +63,7 @@ namespace FinalTask.Controllers
         [Route("get-dto")]
         public List<MovieListForMovieDTO> GetAllMovieListDTOs()
         {
-
+            return _getAllMovieListDTOsQuery.Execute();
         }
     }
 }

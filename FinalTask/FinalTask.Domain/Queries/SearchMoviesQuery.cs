@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Http;
 using System.Threading.Tasks;
 
 namespace FinalTask.Domain.Queries
@@ -17,7 +18,7 @@ namespace FinalTask.Domain.Queries
             _context = new MovieAppContext();
         }
 
-        public List<Movie> Execute (string searchText, string[] searchBy)
+        public List<Movie> Execute (string searchText, List<string> searchBy)
         {
             var movies = new List<Movie>();
 

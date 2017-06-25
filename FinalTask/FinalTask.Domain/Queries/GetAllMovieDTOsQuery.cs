@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace FinalTask.Domain.Queries
 {
-    public class GetAllMovieDTOs
+    public class GetAllMovieDTOsQuery
     {
         private readonly MovieAppContext _context;
 
-        public GetAllMovieDTOs()
+        public GetAllMovieDTOsQuery()
         {
             _context = new MovieAppContext();
         }

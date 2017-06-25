@@ -27,8 +27,6 @@ namespace FinalTask.Data.Models
         public int DirectorId { get; set; }
         public virtual Director Director { get; set; }
 
-        [JsonIgnore]
-        [IgnoreDataMember]
         public virtual ICollection<MovieList> MovieLists { get; set; }
     }
 }

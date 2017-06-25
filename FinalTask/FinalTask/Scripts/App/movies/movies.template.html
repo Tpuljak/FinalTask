@@ -7,5 +7,6 @@
     <h4>Filters: </h4>
     <label ng-repeat="filter in filters"><input type="checkbox" ng-model="filter.checked" value="{{filter.Value}}" />{{filter.Name}}</label>
 </div>
+<br />
 <button ui-sref="movieAdding">Add new movies</button>
-<movie-lister show-movie-lists="true" expanded="true"></movie-lister>
+<movie-lister show-movie-lists="true" expanded="true" search-resault="movies"></movie-lister>

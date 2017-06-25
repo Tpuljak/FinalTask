@@ -1,28 +1,28 @@
-﻿angular.module('app').directive('movieLister', function (localStorageService) {
+﻿angular.module('app').directive('movieLister', function (localStorageService, RefreshListService) {
     return {
         restrict: 'AE',
         scope: {
             showMovieLists: '@',
             expanded: '@',
-            movieListId: '@'
+            movieListId: '@',
+            searchResault: '='
+        },
+        link: function ($scope, element, attrs) {
+            $scope.$watch('searchResault', function (newVal, oldVal) {
+                if ($scope.searchResault)
+                    $scope.movies = $scope.searchResault;
+                else
+                    $scope.movies = RefreshListService.refresh("movies");
+                console.log($scope.movies);
+            })  
         },
         templateUrl: 'Scripts/App/directives/movieLister.template.html',
         controller: function ($scope, moviesRepository, RefreshListService, SetStorageService) {
-            if ($scope.expanded === "true")
-                $scope.expand = true;
-            else
-                $scope.expand = false;
-
-            if ($scope.showMovieLists === "true")
-                $scope.showLists = true;
-            else
-                $scope.showLists = false;
-
-            if (!$scope.movieListId)
+            if (!$scope.movieListId || !$scope.movies)
                 $scope.movies = RefreshListService.refresh("movies");
 
-            else
-                $scope.movies = _.filter(angular.fromJson(localStorageService.get("movies")), movie => _.find(movie.MovieLists, movieList => movieList.Id == parseInt($scope.movieListId)));
+            else if ($scope.movieListId)
+                $scope.movies = _.filter(RefreshListService.refresh("movies"), movie => _.find(movie.MovieLists, movieList => movieList.Id === parseInt($scope.movieListId)));
 
             $scope.deleteMovie = function (id) {
                 moviesRepository.delete(id)

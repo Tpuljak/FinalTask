@@ -62,7 +62,7 @@ namespace FinalTask.Controllers
 
         [HttpGet]
         [Route("search")]
-        public List<Movie> SearchMovies(string searchText, string[] searchBy)
+        public List<Movie> SearchMovies(string searchText, [FromUri] List<string> searchBy)
         {
             return _searchMoviesQuery.Execute(searchText, searchBy);
         }

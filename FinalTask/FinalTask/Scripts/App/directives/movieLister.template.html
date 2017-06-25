@@ -1,6 +1,6 @@
 ﻿<div ng-repeat="movie in movies" class="movie-data-container">
     <h3>Name: </h3>{{movie.Name}}
-    <div ng-show="expand">
+    <div ng-show="expanded === 'true'">
         <h3>Director: </h3>{{movie.Director.Name}}
         <h3>Genre: </h3>{{movie.Genre.Name}}
         <h3>Actors: </h3>
@@ -17,5 +17,5 @@
         </div>
     </div>
     <button ui-sref="movieDetails({movieId: {{movie.Id}}})">Details and edit</button>
-    <button ng-show="showLists" ng-click="deleteMovie(movie.Id)">Delete</button>
+    <button ng-show="showMovieLists" ng-click="deleteMovie(movie.Id)">Delete</button>
 </div>

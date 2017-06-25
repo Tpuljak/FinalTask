@@ -35,7 +35,7 @@
             }
 
             if ($scope.selectedGenre !== "random")
-                var movies = _.filter($scope.movies, movie => movie.GenreId == $scope.selectedGenre);
+                var movies = _.filter($scope.movies, movie => movie.GenreId === $scope.selectedGenre);
             else
                 var movies = $scope.movies;
 
