@@ -3,14 +3,6 @@
         return $http.get('/hashtags/get-all');
     }
 
-    function getSpecificHashtag(id) {
-        return $http.get('/hashtags/get', {
-            params: {
-                id: id
-            }
-        });
-    }
-
     function createHashtag(text) {
         if (text[0] != '#')
             text = '#' + text;
@@ -24,7 +16,6 @@
 
     return {
         getAll: getAllHashtags,
-        getSpecific: getSpecificHashtag,
         create: createHashtag
     };
 })

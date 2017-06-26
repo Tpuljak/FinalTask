@@ -1,6 +1,4 @@
-﻿<h1>
-    {{movieList.Name}}
-</h1>
+﻿<h1>{{movieList.Name}}</h1>
 <button ng-click="editModeSwitch()" ng-show="!editMode">Edit movie list</button>
 <div class="edit-container" ng-show="editMode">
     <h4>Edit name: </h4>
@@ -11,4 +9,4 @@
     <label ng-repeat="movie in movies"><input type="checkbox" name="moviesSelect" ng-model="movie.checked" value="{{movie.Id}}" />{{movie.Name}}<br /></label>
 </div>
 <h4 ng-show="!editMode">Movies: </h4>
-<movie-lister show-movie-lists="false" expanded="false" movie-list-id="{{movieList.Id}}" ng-show="!editMode"></movie-lister>
+<movie-lister show-movie-lists="false" expanded="false" movie-list-id="{{movieList.Id}}" ng-show="!editMode" refresh="{{refreshTrigger}}"></movie-lister>

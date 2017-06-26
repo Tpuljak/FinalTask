@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('MoviesController', function ($filter, moviesRepository, localStorageService, $http, $scope, SetStorageService, RefreshListService, MovieSearchService) {
+﻿angular.module('app').controller('MoviesController', function ($filter, moviesRepository, $scope) {
     $scope.noMovies = false;
 
     $scope.filters = [

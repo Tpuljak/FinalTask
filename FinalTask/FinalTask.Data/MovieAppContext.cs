@@ -1,11 +1,6 @@
 ﻿using FinalTask.Data.Initialization;
 using FinalTask.Data.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalTask.Data
 {

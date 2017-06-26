@@ -2,11 +2,7 @@
 using FinalTask.Domain.Commands;
 using FinalTask.Domain.DTO;
 using FinalTask.Domain.Queries;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace FinalTask.Controllers
@@ -17,8 +13,6 @@ namespace FinalTask.Controllers
         private readonly CreateMovieListCommand _createMovieListCommand;
         private readonly DeleteMovieListCommand _deleteMovieListCommand;
         private readonly GetAllMovieListsQuery _getAllMovieListsQuery;
-        private readonly GetSpecificMovieListQuery _getSpecificMovieListQuery;
-        private readonly GetAllMovieListDTOsQuery _getAllMovieListDTOsQuery;
         private readonly EditMovieListCommand _editMovieListCommand;
 
         public MovieListsController()
@@ -26,8 +20,6 @@ namespace FinalTask.Controllers
             _createMovieListCommand = new CreateMovieListCommand();
             _deleteMovieListCommand = new DeleteMovieListCommand();
             _getAllMovieListsQuery = new GetAllMovieListsQuery();
-            _getSpecificMovieListQuery = new GetSpecificMovieListQuery();
-            _getAllMovieListDTOsQuery = new GetAllMovieListDTOsQuery();
             _editMovieListCommand = new EditMovieListCommand();
         }
 
@@ -36,13 +28,6 @@ namespace FinalTask.Controllers
         public List<MovieList> GetAllMovieLists()
         {
             return _getAllMovieListsQuery.Execute();
-        }
-
-        [HttpGet]
-        [Route("get")]
-        public MovieList GetSpecificMovieList(int id)
-        {
-            return _getSpecificMovieListQuery.Execute(id);
         }
 
         [HttpDelete]
@@ -60,13 +45,6 @@ namespace FinalTask.Controllers
             MovieList movieList = MovieListAddDTO.ToMovieList(movieListDTO);
             _createMovieListCommand.Execute(movieList);
             return Ok();
-        }
-
-        [HttpGet]
-        [Route("get-dto")]
-        public List<MovieListForMovieDTO> GetAllMovieListDTOs()
-        {
-            return _getAllMovieListDTOsQuery.Execute();
         }
 
         [HttpPost]

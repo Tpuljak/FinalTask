@@ -1,6 +1,4 @@
-﻿<h1>
-    {{movie.Name}}
-</h1>
+﻿<h1>{{movie.Name}}</h1>
 <button ng-show="!editMode" ng-click="editModeSwitch()">Edit</button>
 <button ng-click="cancel()" ng-show="editMode">Cancel</button>
 <div class="movie-details-container" ng-show="!editMode">
@@ -20,4 +18,4 @@
         <button ui-sref="movieListDetails({movieListId: {{movieList.Id}}})">Details and edit</button>
     </div>
 </div>
-<movie-add-edit mode="edit" ng-show="editMode" movie-id="{{movie.Id}}"></movie-add-edit>
+<movie-add-edit mode="edit" ng-show="editMode" movie-id="{{movie.Id}}" edit-mode="editMode" movie-view="movie"></movie-add-edit>

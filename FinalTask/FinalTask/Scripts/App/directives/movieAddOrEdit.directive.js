@@ -3,7 +3,9 @@
         restrict: 'AE',
         scope: {
             mode: '@',
-            movieId: '@'
+            movieId: '@',
+            editMode: '=',
+            movieView: '='
         },
         templateUrl: '/Scripts/App/directives/movieAddOrEdit.template.html',
         controller: function ($scope, $filter, RefreshListService, SetStorageService, directorsRepository, actorsRepository, hashtagsRepository, genresRepository, movieListsRepository, moviesRepository) {
@@ -130,16 +132,20 @@
                         })
                     })
 
-                else if ($scope.mode === 'edit')
+                else if ($scope.mode === 'edit') {
                     newMovie.Id = $scope.movie.Id;
                     moviesRepository.edit(newMovie).then(function () {
                         moviesRepository.getAll().then(function (response) {
                             SetStorageService.setLocalStorage(response.data, "movies");
-                            $scope.resetForm;
+                            $scope.resetForm();
                             $scope.loadData();
-                            $scope.$apply();
+                            alert("Movie successfully edited!");
+                            $scope.editMode = false;
+                            $scope.movieView = _.find(RefreshListService.refresh("movies"), movie => movie.Id === newMovie.Id);
                         })
                     })
+                }
+                    
             };
         }
     }

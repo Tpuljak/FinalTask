@@ -69,24 +69,14 @@
     <Compile Include="Commands\DeleteMovieListCommand.cs" />
     <Compile Include="Commands\EditMovieCommand.cs" />
     <Compile Include="Commands\EditMovieListCommand.cs" />
-    <Compile Include="DTO\MovieForMovieListDTO.cs" />
     <Compile Include="DTO\MovieListAddDTO.cs" />
-    <Compile Include="DTO\MovieListForMovieDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\GetAllActorsQuery.cs" />
     <Compile Include="Queries\GetAllDirectorsQuery.cs" />
     <Compile Include="Queries\GetAllGenresQuery.cs" />
     <Compile Include="Queries\GetAllHashtagsQuery.cs" />
-    <Compile Include="Queries\GetAllMovieDTOsQuery.cs" />
-    <Compile Include="Queries\GetAllMovieListDTOsQuery.cs" />
     <Compile Include="Queries\GetAllMovieListsQuery.cs" />
     <Compile Include="Queries\GetAllMoviesQuery.cs" />
-    <Compile Include="Queries\GetSpecificActorQuery.cs" />
-    <Compile Include="Queries\GetSpecificDirectorQuery.cs" />
-    <Compile Include="Queries\GetSpecificGenreQuery.cs" />
-    <Compile Include="Queries\GetSpecificHashtagQuery.cs" />
-    <Compile Include="Queries\GetSpecificMovieListQuery.cs" />
-    <Compile Include="Queries\GetSpecificMovieQuery.cs" />
     <Compile Include="Queries\SearchMoviesQuery.cs" />
   </ItemGroup>
   <ItemGroup>

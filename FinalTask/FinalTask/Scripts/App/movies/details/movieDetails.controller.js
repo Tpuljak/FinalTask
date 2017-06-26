@@ -1,5 +1,5 @@
-﻿angular.module('app').controller('MovieDetailsController', function (localStorageService, $scope, $stateParams) {
-    $scope.movie = _.find(angular.fromJson(localStorageService.get("movies")), movie => movie.Id == $stateParams.movieId);
+﻿angular.module('app').controller('MovieDetailsController', function ($scope, $stateParams, RefreshListService) {
+    $scope.movie = _.find(RefreshListService.refresh("movies"), movie => movie.Id == $stateParams.movieId);
     $scope.editMode = false;
 
     $scope.editModeSwitch = function () {

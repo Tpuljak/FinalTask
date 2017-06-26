@@ -1,10 +1,6 @@
 ﻿using FinalTask.Data;
 using FinalTask.Data.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FinalTask.Domain.Commands
 {
@@ -19,9 +15,15 @@ namespace FinalTask.Domain.Commands
 
         public void Execute(MovieList movieList)
         {
-            foreach (Movie movie in movieList.Movies)
-                _context.Movies.Attach(movie);
+            var movies = new List<Movie>();
 
+            foreach (var movie in movieList.Movies)
+            {
+                movies.Add(_context.Movies.Find(movie.Id));
+            }
+
+            movieList.Movies.Clear();
+            movieList.Movies = movies;
             _context.MovieLists.Add(movieList);
             _context.SaveChanges();
         }

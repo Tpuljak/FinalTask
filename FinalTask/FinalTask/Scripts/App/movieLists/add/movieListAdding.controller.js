@@ -2,7 +2,7 @@
     $scope.movies = RefreshListService.refresh("movies");
     $scope.genres = RefreshListService.refresh("genres");
     $scope.movieListAdded = false;
-    $scope.selectedGenre = null;
+    $scope.selectedGenre = "random";
 
     $scope.getSelected = function (listToCheck) {
         var selected = $filter("filter")(listToCheck, {

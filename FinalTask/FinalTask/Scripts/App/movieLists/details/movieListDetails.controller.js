@@ -1,9 +1,10 @@
-﻿angular.module('app').controller('MovieListDetailsController', function ($stateParams, $scope, $filter, localStorageService, RefreshListService, SetStorageService, moviesRepository, movieListsRepository) {
+﻿angular.module('app').controller('MovieListDetailsController', function ($stateParams, $scope, $filter, RefreshListService, SetStorageService, moviesRepository, movieListsRepository) {
     $scope.movieList = _.find(RefreshListService.refresh("movieLists"), movieList => movieList.Id == $stateParams.movieListId);
     $scope.editMode = false;
     $scope.nameEditInput = $scope.movieList.Name;
     $scope.movies = RefreshListService.refresh("movies");
-    
+    $scope.refreshTrigger = 0;
+
     $scope.getSelected = function (listToCheck) {
         var selected = $filter("filter")(listToCheck, {
             checked: true
@@ -33,9 +34,11 @@
             });
             moviesRepository.getAll().then(function (response) {
                 SetStorageService.setLocalStorage(response.data, "movies");
+                $scope.movieList = _.find(RefreshListService.refresh("movieLists"), movieList => movieList.Id === changedMovieList.Id);
+                $scope.editMode = false;
+                $scope.refreshTrigger++;
+                alert("Movie list successfully edited!");
             });
-            $scope.movieList = _.find(RefreshListService.refresh("movieLists"), movieList => movieList.Id == changedMovieList.Id);
-            $scope.editMode = false;
         });
 
     }

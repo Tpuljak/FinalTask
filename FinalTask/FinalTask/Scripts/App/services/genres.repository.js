@@ -3,14 +3,6 @@
         return $http.get('/genres/get-all');
     }
 
-    function getSpecificGenre(id) {
-        return $http.get('/genres/get/', {
-            params: {
-                id: id
-            }
-        });
-    }
-
     function createGenre(name) {
         var newGenre = {
             Name: name
@@ -21,7 +13,6 @@
 
     return {
         getAll: getAllGenres,
-        getSpecific: getSpecificGenre,
         create: createGenre
     }
 })

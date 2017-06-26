@@ -1,4 +1,6 @@
-﻿<div ng-repeat="movie in movies" class="movie-data-container" ng-show="!noMovies">
+﻿<div ng-show="!movies.length && !movieListId">No movies to show.</div>
+<div ng-show="!movies.length && movieListId">No movies in this list.</div>
+<div ng-repeat="movie in movies" class="movie-data-container" ng-show="!noMovies">
     <span ng-show="!movies.length">No movies in this list.<br /></span>
     <h3 ng-show="showMovieLists === 'true'">Name: </h3>
     {{movie.Name}}
