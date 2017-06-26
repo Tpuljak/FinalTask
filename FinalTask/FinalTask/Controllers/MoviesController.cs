@@ -20,6 +20,7 @@ namespace FinalTask.Controllers
         private readonly GetSpecificMovieQuery _getSpecificMovieQuery;
         private readonly SearchMoviesQuery _searchMoviesQuery;
         private readonly GetAllMovieDTOsQuery _getAllMovieDTOsQuery;
+        private readonly EditMovieCommand _editMovieCommand;
 
         public MoviesController()
         {
@@ -28,6 +29,8 @@ namespace FinalTask.Controllers
             _getAllMoviesQuery = new GetAllMoviesQuery();
             _getSpecificMovieQuery = new GetSpecificMovieQuery();
             _searchMoviesQuery = new SearchMoviesQuery();
+            _getAllMovieDTOsQuery = new GetAllMovieDTOsQuery();
+            _editMovieCommand = new EditMovieCommand();
         }
 
         [HttpGet]
@@ -72,6 +75,15 @@ namespace FinalTask.Controllers
         public List<MovieForMovieListDTO> GetAllMovieDTOs()
         {
             return _getAllMovieDTOsQuery.Execute();
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public IHttpActionResult EditMovie(Movie changedMovie)
+        {
+            _editMovieCommand.Execute(changedMovie);
+
+            return Ok();
         }
     }
 }

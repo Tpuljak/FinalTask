@@ -1,41 +1,42 @@
-﻿<!--<h1>Add new movies:</h1>
+﻿<h1 ng-show="mode === 'add'">Add new movies:</h1>
+<h3 ng-show="mode === 'edit'">Edit movie: </h3>
 <h4>* = required</h4>
-<div class="create-movie-container">
+<div class="movie-add-edit-container">
     <div class="input-section-container">
-        <h3>Movie name: *</h3>
+        <h3>{{nameText}}</h3>
         <input placeholder="Type here..." type="text" ng-model="newMovieName" />
     </div>
     <div class="input-section-container">
-        <h3>Choose a director: *</h3>
-        <label ng-repeat="director in directors"><input type="radio" name="directorSelect" ng-model="$parent.selectedDirectorId" value="{{director.Id}}"/>{{director.Name}}<br /></label>
+        <h3>{{directorText}}</h3>
+        <label ng-repeat="director in directors"><input type="radio" name="directorSelect" ng-model="$parent.selectedDirectorId" value="{{director.Id}}" />{{director.Name}}<br /></label>
         <input type="text" placeholder="New director name" ng-model="newDirectorName" />
         <button ng-click="addDirector(newDirectorName)" ng-disabled="!newDirectorName">Add new director</button>
     </div>
     <div class="input-section-container">
-        <h3>Choose a genre: *</h3>
+        <h3>{{genreText}}</h3>
         <label ng-repeat="genre in genres"><input type="radio" name="genreSelect" ng-model="$parent.selectedGenreId" value="{{genre.Id}}" />{{genre.Name}}<br /></label>
         <input type="text" placeholder="New genre name" ng-model="newGenreName" />
         <button ng-click="addGenre(newGenreName)" ng-disabled="!newGenreName">Add new genre</button>
     </div>
     <div class="input-section-container">
-        <h3>Choose actors: *</h3>
+        <h3>{{actorsText}}</h3>
         <label ng-repeat="actor in actors"><input type="checkbox" name="actorsSelect" ng-model="actor.checked" value="{{actor.Id}}" />{{actor.Name}}<br /></label>
         <input type="text" placeholder="New actor name" ng-model="newActorName" />
         <button ng-click="addActor(newActorName)" ng-disabled="!newActorName">Add new actor</button>
     </div>
     <div class="input-section-container">
-        <h3>Choose hashtags: </h3>
+        <h3>{{hashtagsText}}</h3>
         <label ng-repeat="hashtag in hashtags"><input type="checkbox" name="hashtagsSelect" ng-model="hashtag.checked" value="{{hashtag.Id}}" />{{hashtag.Text}}<br /></label>
         <input type="text" placeholder="New hashtag" ng-model="newHashtagText" />
         <button ng-click="addHashtag(newHashtagText)" ng-disabled="!newHashtagText">Add new hashtag</button>
     </div>
     <div class="input-section-container">
-        <h3>Choose movie lists: </h3>
+        <h3>{{movieListsText}}</h3>
         <label ng-repeat="movieList in movieLists"><input type="checkbox" name="movieListsSelect" ng-model="movieList.checked" value="{{movieList.Id}}" />{{movieList.Name}}<br /></label>
         <input type="text" placeholder="New movie list name" ng-model="newMovieListName" />
         <button ng-click="addMovieList(newMovieListName)" ng-disabled="!newMovieListName">Add new movie list</button>
     </div>
 </div>
-<button ng-click="addNewMovie()">Add movie</button>
-<h4 ng-show="movieAdded">Movie successfully added.</h4>-->
-<movie-add-edit mode="add"></movie-add-edit>
+<button ng-click="addOrEditMovie()" ng-show="mode === 'add'">Add movie</button>
+<button ng-click="addOrEditMovie()" ng-show="mode === 'edit'">Edit movie</button>
+

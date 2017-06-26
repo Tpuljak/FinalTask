@@ -27,11 +27,16 @@
         return $http.get('/movieLists/get-dto');
     }
 
+    function editMovieList(changedMovieList) {
+        return $http.post('/movieLists/edit/', changedMovieList);
+    }
+
     return {
         getAll: getAllMovieLists,
         getSpecific: getSpecificMovieList,
         create: createMovieList,
         delete: deleteMovieList,
-        getDTOs: getMovieListDTOs
+        getDTOs: getMovieListDTOs,
+        edit: editMovieList
     };
 })

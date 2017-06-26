@@ -11,8 +11,8 @@
         });
     }
 
-    function createMovie(newMovie) {
-        return $http.post('/movies/create/', newMovie);
+    function createMovie(newMovie, movies) {
+        return $http.post('/movies/create/', newMovie, movies);
     }
 
     function deleteMovie(id) {
@@ -36,12 +36,17 @@
         return $http.get('/movies/get-dto');
     }
 
+    function editMovie(changedMovie) {
+        return $http.post('/movies/edit/', changedMovie);
+    }
+
     return {
         getAll: getAllMovies,
         getSpecific: getSpecificMovie,
         create: createMovie,
         delete: deleteMovie,
         search: searchMovies,
-        getDTOs: getMovieDTOs
+        getDTOs: getMovieDTOs,
+        edit: editMovie
     }
 })

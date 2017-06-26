@@ -19,6 +19,7 @@ namespace FinalTask.Controllers
         private readonly GetAllMovieListsQuery _getAllMovieListsQuery;
         private readonly GetSpecificMovieListQuery _getSpecificMovieListQuery;
         private readonly GetAllMovieListDTOsQuery _getAllMovieListDTOsQuery;
+        private readonly EditMovieListCommand _editMovieListCommand;
 
         public MovieListsController()
         {
@@ -27,6 +28,7 @@ namespace FinalTask.Controllers
             _getAllMovieListsQuery = new GetAllMovieListsQuery();
             _getSpecificMovieListQuery = new GetSpecificMovieListQuery();
             _getAllMovieListDTOsQuery = new GetAllMovieListDTOsQuery();
+            _editMovieListCommand = new EditMovieListCommand();
         }
 
         [HttpGet]
@@ -53,8 +55,9 @@ namespace FinalTask.Controllers
 
         [HttpPost]
         [Route("create")]
-        public IHttpActionResult CreateMovieList(MovieList movieList)
+        public IHttpActionResult CreateMovieList(MovieListAddDTO movieListDTO)
         {
+            MovieList movieList = MovieListAddDTO.ToMovieList(movieListDTO);
             _createMovieListCommand.Execute(movieList);
             return Ok();
         }
@@ -64,6 +67,16 @@ namespace FinalTask.Controllers
         public List<MovieListForMovieDTO> GetAllMovieListDTOs()
         {
             return _getAllMovieListDTOsQuery.Execute();
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public IHttpActionResult EditMovieList(MovieListAddDTO changedMovieList)
+        {
+            MovieList movieList = MovieListAddDTO.ToMovieList(changedMovieList);
+            _editMovieListCommand.Execute(movieList);
+
+            return Ok();
         }
     }
 }

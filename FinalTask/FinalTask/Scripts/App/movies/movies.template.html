@@ -5,8 +5,8 @@
 <input type="text" placeholder="Type here..." ng-model="searchInput" ng-change="search()"/>
 <div class="filters-container" ng-show="searchInput">
     <h4>Filters: </h4>
-    <label ng-repeat="filter in filters"><input type="checkbox" ng-model="filter.checked" value="{{filter.Value}}" />{{filter.Name}}</label>
+    <label ng-repeat="filter in filters"><input type="checkbox" ng-model="filter.checked" value="{{filter.Filter}}" ng-change="getFilters()" ng-click="clearFilters(filter.Filter)"/>{{filter.Name}}</label>
 </div>
 <br />
 <button ui-sref="movieAdding">Add new movies</button>
-<movie-lister show-movie-lists="true" expanded="true" search-resault="movies"></movie-lister>
+<movie-lister show-movie-lists="true" expanded="true" search-input="{{searchInput}}" filters="sentFilters"></movie-lister>

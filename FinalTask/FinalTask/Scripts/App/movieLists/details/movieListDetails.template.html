@@ -1,4 +1,14 @@
 ﻿<h1>
     {{movieList.Name}}
 </h1>
-<movie-lister show-movie-lists="false" expanded="false" movie-list-id="{{movieList.Id}}"></movie-lister>
+<button ng-click="editModeSwitch()" ng-show="!editMode">Edit movie list</button>
+<div class="edit-container" ng-show="editMode">
+    <h4>Edit name: </h4>
+    <input type="text" placeholder="Type here..." ng-model="nameEditInput"/>
+    <button ng-click="saveChanges()">Save changes</button>
+    <button ng-click="cancel()">Cancel</button>
+    <h4>Edit movies: </h4>
+    <label ng-repeat="movie in movies"><input type="checkbox" name="moviesSelect" ng-model="movie.checked" value="{{movie.Id}}" />{{movie.Name}}<br /></label>
+</div>
+<h4 ng-show="!editMode">Movies: </h4>
+<movie-lister show-movie-lists="false" expanded="false" movie-list-id="{{movieList.Id}}" ng-show="!editMode"></movie-lister>

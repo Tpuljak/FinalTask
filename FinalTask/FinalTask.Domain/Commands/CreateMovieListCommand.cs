@@ -19,6 +19,9 @@ namespace FinalTask.Domain.Commands
 
         public void Execute(MovieList movieList)
         {
+            foreach (Movie movie in movieList.Movies)
+                _context.Movies.Attach(movie);
+
             _context.MovieLists.Add(movieList);
             _context.SaveChanges();
         }

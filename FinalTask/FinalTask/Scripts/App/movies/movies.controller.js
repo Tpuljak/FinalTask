@@ -1,5 +1,5 @@
 ﻿angular.module('app').controller('MoviesController', function ($filter, moviesRepository, localStorageService, $http, $scope, SetStorageService, RefreshListService, MovieSearchService) {
-    $scope.movies = null;
+    $scope.noMovies = false;
 
     $scope.filters = [
         {
@@ -21,21 +21,22 @@
         }
     ];
 
-    $scope.getSelected = function (listToCheck) {
-        var selected = $filter("filter")(listToCheck, {
+    $scope.sentFilters = "all";
+    $scope.getFilters = function () {
+        var selected = $filter("filter")($scope.filters, {
             checked: true
         });
 
-        return _.flatMap(selected, selection => selection.Filter);
+        $scope.sentFilters = _.flatMap(selected, selection => selection.Filter);
     }
 
-    $scope.search = function () {
-        if ($scope.searchInput)
-            moviesRepository.search($scope.searchInput, $scope.getSelected($scope.filters))
-                .then(function (response) {
-                    $scope.movies = response.data;
-                });
+    $scope.clearFilters = function (filter) {
+        if (filter === "all")
+            for (var i = 1; i < $scope.filters.length; i++) {
+                $scope.filters[i].checked = false;
+            }
         else
-            $scope.movies = null;
+            $scope.filters[0].checked = false;
+        $scope.getFilters();
     }
 });

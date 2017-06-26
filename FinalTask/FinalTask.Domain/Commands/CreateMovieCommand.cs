@@ -19,6 +19,15 @@ namespace FinalTask.Domain.Commands
 
         public void Execute(Movie movie)
         {
+            foreach (var actor in movie.Actors)
+                _context.Actors.Attach(actor);
+
+            foreach (var hashtag in movie.Hashtags)
+                _context.Hashtags.Attach(hashtag);
+
+            foreach (var movieList in movie.MovieLists)
+                _context.MovieLists.Attach(movieList);
+
             _context.Movies.Add(movie);
             _context.SaveChanges();
         }

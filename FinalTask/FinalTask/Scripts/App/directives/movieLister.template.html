@@ -1,5 +1,7 @@
-﻿<div ng-repeat="movie in movies" class="movie-data-container">
-    <h3>Name: </h3>{{movie.Name}}
+﻿<div ng-repeat="movie in movies" class="movie-data-container" ng-show="!noMovies">
+    <span ng-show="!movies.length">No movies in this list.<br /></span>
+    <h3 ng-show="showMovieLists === 'true'">Name: </h3>
+    {{movie.Name}}
     <div ng-show="expanded === 'true'">
         <h3>Director: </h3>{{movie.Director.Name}}
         <h3>Genre: </h3>{{movie.Genre.Name}}
@@ -11,11 +13,13 @@
         <div ng-repeat="hashtag in movie.Hashtags" class="hashtag-list">
             {{hashtag.Text}}
         </div>
-        <h3 ng-show="movie.MovieLists.length && showLists">Movie lists: </h3>
-        <div ng-repeat="movieList in movie.MovieLists" class="movieList-list" ng-show="showLists">
+        <h3 ng-show="showMovieLists">Movie lists: </h3>
+        <div ng-repeat="movieList in movie.MovieLists" class="movieList-list" ng-show="showMovieLists === 'true'">
             {{movieList.Name}}
         </div>
+        <span ng-show="!movie.MovieLists.length">No movie lists.</span>
     </div>
-    <button ui-sref="movieDetails({movieId: {{movie.Id}}})">Details and edit</button>
-    <button ng-show="showMovieLists" ng-click="deleteMovie(movie.Id)">Delete</button>
+    <button ui-sref="movieDetails({movieId: {{movie.Id}}})" ng-show="showMovieLists === 'true'">Details and edit</button>
+    <button ng-show="showMovieLists === 'true'" ng-click="deleteMovie(movie.Id)">Delete</button>
 </div>
+<h3 ng-show="noMovies">No movies match your search.</h3>

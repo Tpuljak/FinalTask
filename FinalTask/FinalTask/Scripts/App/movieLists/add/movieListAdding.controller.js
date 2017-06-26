@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('MovieListAddingController', function ($filter, $scope, RefreshListService, SetStorageService, movieListsRepository) {
+﻿angular.module('app').controller('MovieListAddingController', function ($filter, $scope, RefreshListService, SetStorageService, movieListsRepository, moviesRepository) {
     $scope.movies = RefreshListService.refresh("movies");
     $scope.genres = RefreshListService.refresh("genres");
     $scope.movieListAdded = false;
@@ -35,7 +35,7 @@
             }
 
             if ($scope.selectedGenre !== "random")
-                var movies = _.filter($scope.movies, movie => movie.GenreId === $scope.selectedGenre);
+                var movies = _.filter($scope.movies, movie => movie.GenreId == $scope.selectedGenre);
             else
                 var movies = $scope.movies;
 
@@ -55,7 +55,10 @@
                 $scope.numberOfMovies = "";
                 angular.forEach($scope.movies, movie => movie.checked = false);
                 $scope.movieListAdded = true;
-                $scope.movies = RefreshListService.refresh("movies");
+                moviesRepository.getAll().then(function (response) {
+                    SetStorageService.setLocalStorage(response.data, "movies");
+                    $scope.movies = RefreshListService.refresh("movies");
+                })
             })
         })
     }

@@ -193,6 +193,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\App\directives\movieAddOrEdit.directive.js" />
+    <Content Include="Scripts\App\directives\movieAddOrEdit.template.html" />
     <Content Include="Scripts\App\directives\movieLister.directive.js" />
     <Content Include="Scripts\App\directives\movieLister.template.html" />
     <Content Include="Scripts\App\home\home.controller.js" />
